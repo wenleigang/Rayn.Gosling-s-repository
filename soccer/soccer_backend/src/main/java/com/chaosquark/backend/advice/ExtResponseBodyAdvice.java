@@ -1,6 +1,7 @@
 package com.chaosquark.backend.advice;
 
 import com.alibaba.fastjson.JSON;
+import com.chaosquark.backend.annotation.WareResponseBody;
 import com.chaosquark.backend.common.enums.ResponseStatusEnum;
 import com.chaosquark.backend.entity.vo.ResponseVo;
 import org.slf4j.Logger;
@@ -31,7 +32,15 @@ public class ExtResponseBodyAdvice<T> implements ResponseBodyAdvice<T> {
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
 
-        return true;
+        // 默认返回false,修改为返回true,否则不会执行beforeBodyWrite方法;
+        if(methodParameter != null) {
+            if(methodParameter.getMethod() != null && methodParameter.getMethod().getDeclaringClass() != null) {
+                if(methodParameter.getMethod().getDeclaringClass().getAnnotation(WareResponseBody.class) != null) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override

@@ -36,7 +36,7 @@ public class ExceptionAdvice<T> {
         }else{
             BizException bizException = new BizException(exception);
             responseVo = new ResponseVo(bizException);
-            logger.info(exception.getMessage());
+            logger.info(exception.toString());
         }
         return new ResponseEntity(responseVo, HttpStatus.OK);
     }

@@ -16,7 +16,7 @@ public enum ResponseStatusEnum {
     /**
      * 操作成功
      */
-    OK(10001, "successful", "成功"),
+    OK(200, "successful", "成功"),
 
     /**
      * 删除失败

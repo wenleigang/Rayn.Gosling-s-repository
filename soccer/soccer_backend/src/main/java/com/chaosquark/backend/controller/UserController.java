@@ -1,5 +1,6 @@
 package com.chaosquark.backend.controller;
 
+import com.chaosquark.backend.annotation.WareResponseBody;
 import com.chaosquark.backend.common.enums.ResponseStatusEnum;
 import com.chaosquark.backend.entity.BizException;
 import com.chaosquark.backend.entity.User;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/user")
+@WareResponseBody
 public class UserController {
 
     @Autowired
