@@ -1,14 +1,20 @@
 package com.chaosquark.backend.common.mybatis.handler;
 
+import com.chaosquark.backend.common.enums.BillCategoryEnum;
+import com.chaosquark.backend.common.enums.NoticeTypeEnum;
+import com.chaosquark.backend.common.enums.PlayerPositionEnum;
+import com.chaosquark.backend.common.enums.StaffStatusEnum;
 import com.chaosquark.backend.common.interfaces.EnumIntegerValue;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.MappedTypes;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@MappedTypes(value = {BillCategoryEnum.class, NoticeTypeEnum.class, PlayerPositionEnum.class, StaffStatusEnum.class})
 public class EnumIntegerValueTypeHandler<T extends EnumIntegerValue> extends BaseTypeHandler<T> {
 
     private Class<T> type;

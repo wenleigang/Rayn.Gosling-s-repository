@@ -9,16 +9,16 @@ public enum NoticeTypeEnum implements EnumIntegerValue {
 
     OTHER(0, "其他");
 
-    private final int value;
-    private final String info;
+    Integer value;
+    String info;
 
-    NoticeTypeEnum(int value, String info) {
+    NoticeTypeEnum(Integer value, String info) {
         this.value = value;
         this.info = info;
     }
 
     @Override
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
@@ -27,7 +27,7 @@ public enum NoticeTypeEnum implements EnumIntegerValue {
         return info;
     }
 
-    public static NoticeTypeEnum get(int value) {
+    public static NoticeTypeEnum get(Integer value) {
         for (NoticeTypeEnum noticeTypeEnum : values()) {
             if(noticeTypeEnum.getValue() == value) {
                 return noticeTypeEnum;

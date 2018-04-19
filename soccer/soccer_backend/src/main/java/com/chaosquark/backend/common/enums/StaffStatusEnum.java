@@ -17,16 +17,16 @@ public enum StaffStatusEnum implements EnumIntegerValue {
     IN_SERVICE(0, "在职"),
     IN_HOLIDAY(0, "休假");
 
-    private final int value;
-    private final String info;
+    Integer value;
+    String info;
 
-    StaffStatusEnum(int value, String info) {
+    StaffStatusEnum(Integer value, String info) {
         this.value = value;
         this.info = info;
     }
 
     @Override
-    public int getValue() {
+    public Integer getValue() {
         return this.value;
     }
 
@@ -35,7 +35,7 @@ public enum StaffStatusEnum implements EnumIntegerValue {
         return this.info;
     }
 
-    public static StaffStatusEnum get(int value) {
+    public static StaffStatusEnum get(Integer value) {
         for (StaffStatusEnum staffStatusEnum : values()) {
             if (staffStatusEnum.getValue() == value) {
                 return staffStatusEnum;

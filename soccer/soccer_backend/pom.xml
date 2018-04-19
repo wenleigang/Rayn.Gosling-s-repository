@@ -70,9 +70,17 @@
         <!-- tkmapper通用模板 -->
         <dependency>
             <groupId>tk.mybatis</groupId>
-            <artifactId>mapper</artifactId>
-            <version>3.4.5</version>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>RELEASE</version>
         </dependency>
+
+        <!-- fastJson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
+
     </dependencies>
 
     <build>

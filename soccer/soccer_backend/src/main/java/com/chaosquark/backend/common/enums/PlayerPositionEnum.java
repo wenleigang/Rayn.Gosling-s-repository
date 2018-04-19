@@ -25,25 +25,25 @@ public enum PlayerPositionEnum implements EnumIntegerValue {
     SW(10, "清道夫"),
     GK(11, "门将");
 
-    private final int value;
-    private final String info;
+    Integer value;
+    String info;
 
-    PlayerPositionEnum(int value, String info) {
+    PlayerPositionEnum(Integer value, String info) {
         this.value = value;
         this.info = info;
     }
 
     @Override
-    public int getValue() {
-        return 0;
+    public Integer getValue() {
+        return this.value;
     }
 
     @Override
     public String getInfo() {
-        return null;
+        return this.info;
     }
 
-    public static PlayerPositionEnum get(int value) {
+    public static PlayerPositionEnum get(Integer value) {
         for (PlayerPositionEnum playerPositionEnum : values()) {
             if(playerPositionEnum.getValue() == value) {
                 return playerPositionEnum;

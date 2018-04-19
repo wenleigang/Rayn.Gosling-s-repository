@@ -1,4 +1,4 @@
-package com.chaosquark.backend.common.entity;
+package com.chaosquark.backend.entity;
 
 /**
  * @ClassName: IdEntity

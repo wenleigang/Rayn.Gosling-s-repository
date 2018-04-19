@@ -1,4 +1,4 @@
-package com.chaosquark.backend.common.entity;
+package com.chaosquark.backend.entity;
 
 import javax.persistence.Column;
 import java.io.Serializable;

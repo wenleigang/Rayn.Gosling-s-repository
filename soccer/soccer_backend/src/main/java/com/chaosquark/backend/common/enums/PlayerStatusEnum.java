@@ -18,16 +18,16 @@ public enum PlayerStatusEnum implements EnumIntegerValue {
     LEASE(2, "租借"),
     RETIRED(3, "已退役");
 
-    private final int value;
-    private final String info;
+    Integer value;
+    String info;
 
-    PlayerStatusEnum(int value, String info) {
+    PlayerStatusEnum(Integer value, String info) {
         this.value = value;
         this.info = info;
     }
 
     @Override
-    public int getValue() {
+    public Integer getValue() {
         return this.value;
     }
 
@@ -36,7 +36,7 @@ public enum PlayerStatusEnum implements EnumIntegerValue {
         return this.info;
     }
 
-    public static PlayerStatusEnum get(int value) {
+    public static PlayerStatusEnum get(Integer value) {
         for (PlayerStatusEnum playerStatusEnum : values()) {
             if(playerStatusEnum.getValue() == value) {
                 return playerStatusEnum;

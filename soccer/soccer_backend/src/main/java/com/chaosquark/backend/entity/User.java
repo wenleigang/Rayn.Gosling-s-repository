@@ -1,4 +1,4 @@
-package com.chaosquark.backend.common.entity;
+package com.chaosquark.backend.entity;
 
 import com.chaosquark.backend.common.enums.PlayerPositionEnum;
 import com.chaosquark.backend.common.enums.PlayerStatusEnum;
@@ -52,8 +52,10 @@ public class User extends IdEntity {
     //详细地址
     private String address;
     //球员位置枚举
-    private PlayerPositionEnum playerPositionEnum;
+    @Column(name = "player_position")
+    private PlayerPositionEnum playerPosition;
     //个人荣誉id集合（逗号，分割）
+    @Column(name = "honor_ids")
     private String honorIds;
     //球员状态枚举
     @Column(name = "player_status")
@@ -197,12 +199,12 @@ public class User extends IdEntity {
         this.address = address;
     }
 
-    public PlayerPositionEnum getPlayerPositionEnum() {
-        return playerPositionEnum;
+    public PlayerPositionEnum getPlayerPosition() {
+        return playerPosition;
     }
 
-    public void setPlayerPositionEnum(PlayerPositionEnum playerPositionEnum) {
-        this.playerPositionEnum = playerPositionEnum;
+    public void setPlayerPosition(PlayerPositionEnum playerPosition) {
+        this.playerPosition = playerPosition;
     }
 
     public String getHonorIds() {

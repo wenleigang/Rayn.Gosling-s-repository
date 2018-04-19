@@ -10,16 +10,16 @@ public enum BillCategoryEnum implements EnumIntegerValue {
 
     OTHER(0, "其他");
 
-    private final int value;
-    private final String info;
+    Integer value;
+    String info;
 
-    BillCategoryEnum(int value, String info) {
+    BillCategoryEnum(Integer value, String info) {
         this.value = value;
         this.info = info;
     }
 
     @Override
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
@@ -28,7 +28,7 @@ public enum BillCategoryEnum implements EnumIntegerValue {
         return info;
     }
 
-    public static  BillCategoryEnum get(int value) {
+    public static  BillCategoryEnum get(Integer value) {
         for (BillCategoryEnum billCategoryEnum : values()) {
             if(billCategoryEnum.getValue() == value) {
                 return billCategoryEnum;
