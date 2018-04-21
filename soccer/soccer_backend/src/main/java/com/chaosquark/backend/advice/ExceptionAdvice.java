@@ -1,5 +1,6 @@
 package com.chaosquark.backend.advice;
 
+import com.chaosquark.backend.annotation.WareResponseBody;
 import com.chaosquark.backend.entity.BizException;
 import com.chaosquark.backend.entity.vo.ResponseVo;
 import org.slf4j.Logger;
@@ -22,6 +23,7 @@ import org.springframework.web.context.request.WebRequest;
  * @Version: 1.0
  */
 @ControllerAdvice
+@WareResponseBody
 public class ExceptionAdvice<T> {
     private final Logger logger = LoggerFactory.getLogger(ExceptionAdvice.class);
 
