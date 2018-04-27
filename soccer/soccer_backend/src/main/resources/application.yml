@@ -46,3 +46,7 @@ mybatis:
 mapper:
   mappers: com.chaosquark.backend.common.tkmapper.MyTkMapper
   identity: MYSQL
+
+shiro:
+  hashAlgorithmName: md5
+  hashIterations: 3

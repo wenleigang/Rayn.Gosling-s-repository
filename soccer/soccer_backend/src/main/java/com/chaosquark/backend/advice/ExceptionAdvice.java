@@ -29,12 +29,11 @@ public class ExceptionAdvice<T> {
 
     @ExceptionHandler(value = Exception.class)
     public ResponseEntity<T> exceptionHandler(Exception exception, WebRequest request) {
-        exception.printStackTrace();
 
         ResponseVo responseVo = null;
         if(exception instanceof BizException) {
             responseVo = new ResponseVo((BizException) exception);
-            logger.error(((BizException) exception).getMsg(), exception);
+            logger.error(((BizException) exception).getMsg());
         }else{
             BizException bizException = new BizException(exception);
             responseVo = new ResponseVo(bizException);

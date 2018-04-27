@@ -37,7 +37,7 @@ public class ExtResponseBodyAdvice<T> implements ResponseBodyAdvice<T> {
 
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
-
+        logger.info("--------------------------支持对response进行包装--------------------------------");
         // 默认返回false,修改为返回true,否则不会执行beforeBodyWrite方法;
         return true;
     }
@@ -49,6 +49,7 @@ public class ExtResponseBodyAdvice<T> implements ResponseBodyAdvice<T> {
             if(methodParameter.getMethod() != null && methodParameter.getMethod().getDeclaringClass() != null) {
                 if(methodParameter.getMethod().getDeclaringClass().getAnnotation(WareResponseBody.class) == null) {
                     if(t instanceof Map) {
+                        logger.info("----------------------------未进入controller产生异常--------------------------------------");
                         try {
                             ResponseVo<Object> vo = new ResponseVo<>();
                             vo.setCode(Integer.parseInt(((Map) t).get("status").toString()));
@@ -67,10 +68,12 @@ public class ExtResponseBodyAdvice<T> implements ResponseBodyAdvice<T> {
         }
 
         if(t instanceof ResponseVo){
+            logger.info("---------------------------进入controller不需要返回data（1发生业务异常，2返回状态码标识）--------------------------------------");
             ((ResponseVo) t).setUri(serverHttpRequest.getURI().getPath());
             return (T) JSON.toJSON(t);
         }
 
+        logger.info("-------------------------------响应成功返回数据--------------------------------------------------");
         ResponseVo<T> responseDto = new ResponseVo<>(ResponseStatusEnum.OK);
         responseDto.setUri(serverHttpRequest.getURI().getPath());
         responseDto.setData(t);
