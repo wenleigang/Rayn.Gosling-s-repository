@@ -2,12 +2,13 @@ package com.chaosquark.backend.controller;
 
 import com.chaosquark.backend.annotation.WareResponseBody;
 import com.chaosquark.backend.common.enums.ResponseStatusEnum;
+import com.chaosquark.backend.common.utils.PureNetUtils;
 import com.chaosquark.backend.entity.BizException;
 import com.chaosquark.backend.entity.User;
 import com.chaosquark.backend.entity.vo.ResponseVo;
 import com.chaosquark.backend.service.UserService;
+import org.apache.http.HttpEntity;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -90,5 +91,19 @@ public class UserController {
     @RequiresRoles("admin")
     public String testRole() {
         return "admin 才能看见的数据";
+    }
+
+    @RequestMapping(value = "/weather", method = RequestMethod.GET)
+    @ResponseBody
+    public HttpEntity weather() {
+        HttpEntity s = null;
+        try {
+            //s = PureNetUtils.getWeatherInfo("http://wthrcdn.etouch.cn/weather_mini?city=北京市");
+            s = new PureNetUtils().sendHttpGet("http://wthrcdn.etouch.cn/weather_mini?city=北京市");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return s;
+
     }
 }

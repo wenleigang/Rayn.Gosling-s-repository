@@ -39,7 +39,7 @@ public class ExtResponseBodyAdvice<T> implements ResponseBodyAdvice<T> {
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
         logger.info("--------------------------支持对response进行包装--------------------------------");
         // 默认返回false,修改为返回true,否则不会执行beforeBodyWrite方法;
-        return true;
+        return false;
     }
 
     @Override
